@@ -1,0 +1,8 @@
+site_name: "monolol"
+site_description: "Just Another WordPress Site"
+
+nav:
+  - Setup prerequisites: example.md
+
+plugins:
+  - techdocs-core

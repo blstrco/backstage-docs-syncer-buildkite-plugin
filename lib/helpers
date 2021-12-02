@@ -1,0 +1,17 @@
+#!/bin/bash
+
+function check_bucket_exists(){
+    local BUCKET=$1
+
+    if aws s3 ls s3://$BUCKET 2>&1 | grep -q 'NoSuchBucket'; then
+        echo "Bucket $BUCKET does not exist. \n Please create the bucket using CDK."
+        return 1
+    fi
+}
+
+function check_mk_docs_file_exists(){
+    if [[ $(find . -name "mkdocs.yml" | wc -l) -lt 1 ]]; then
+        echo "No mkdocs.yml found in current directory"
+        exit 1
+    fi
+}

@@ -1,0 +1,18 @@
+name: Backstage Docs Syncer
+description: Syncs documents for Backstage by storing them in an S3 bucket.
+author: https://github.com/mcncl
+requirements:
+  - aws
+configuration:
+  properties:
+    bucket:
+      type: string
+    namespace:
+      type: string
+    kind:
+      type: string
+    entity_name:
+      type: string
+  required:
+    - kind
+    - entity_name
