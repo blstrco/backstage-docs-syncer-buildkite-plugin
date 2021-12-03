@@ -1,5 +1,8 @@
-# backstage-docs-syncer-buildkite-plugin
-A plugin to assist in syncing Backstage documents to S3.
+# Backstage Docs Syncer
+[Backstage](https://backstage.io/) allows the addition of techdocs, using
+MkDocs as the orchestrating file for `docs/` within a repository. The aim of
+this plugin is to remove the need of a `docker-compose` service and instead
+perform the syncronisation as a plugin when required.
 
 ## Example Use
 
