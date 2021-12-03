@@ -14,11 +14,11 @@ ENTITY="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_ENTITY_NAME}"
 
 check_mk_docs_file_exists
 
-docker run -it -v "$PWD:/app" spotify/techdocs build -f app/mkdocs.yml
+docker run --rm -it -v "$PWD:/app" spotify/techdocs build -f app/mkdocs.yml
 
 if check_bucket_exists $BUCKET; then
   echo "There is no bucket in the target AWS account named $BUCKET"
-  buildkite-agent annotate "Successfully synced documentation to Backstage hub." --style 'error'
+  buildkite-agent annotate "Unable to sync doocumentation to Backstage hub. See console for detail" --style 'error'
   exit 1
 else
   aws s3 sync site/ s3://$BUCKET/$NAMESPACE/$KIND/$ENTITY
