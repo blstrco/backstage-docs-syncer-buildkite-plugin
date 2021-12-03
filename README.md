@@ -14,7 +14,7 @@ steps:
           run: app
           volumes:
             - "./:/app"
-      - mcncl/backstage-docs-syncer#v0.1.0:
+      - mcncl/backstage-docs-syncer#v0.1.1:
           kind: Componenent
           entity_name: Example
           bucket: docs-hub
