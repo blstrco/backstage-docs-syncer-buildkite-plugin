@@ -17,6 +17,8 @@ steps:
       - mcncl/backstage-docs-syncer#v0.1.0:
           kind: Componenent
           entity_name: Example
+          bucket: docs-hub
+          namespace: secret-app
 ```
 
 ## Configuration
