@@ -3,7 +3,7 @@ services:
     image: buildkite/plugin-linter
     command: ['--id', 'mcncl/backstage-docs-syncer']
     volumes:
-      - ".:/plugin:ro"
+      - ".:/plugin"
   tests:
     image: buildkite/plugin-tester
     volumes:

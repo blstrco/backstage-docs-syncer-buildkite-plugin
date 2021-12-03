@@ -1,12 +1,12 @@
 steps:
   - label: "Lint"
     plugins:
-      - docker-compose#v3.1.0:
+      - docker-compose#v3.7.0:
           run: lint
 
   - label: "Test"
     plugins:
-      - docker-compose#v3.1.0:
+      - docker-compose#v3.7.0:
           run: test
 
   - label: ":shell: Shellcheck"
