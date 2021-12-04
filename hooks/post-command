@@ -3,8 +3,6 @@ set -euo pipefail
 
 DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
-PREFIX=BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_
-
 source "$DIR/../lib/helpers"
 
 BUCKET="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_BUCKET:-backstage-docs-bucket}"
@@ -16,12 +14,12 @@ check_mk_docs_file_exists
 
 docker run --rm -it -v "$PWD:/app" spotify/techdocs build -f app/mkdocs.yml
 
-if check_bucket_exists $BUCKET; then
-  aws s3 sync site/ s3://$BUCKET/$NAMESPACE/$KIND/$ENTITY
+if check_bucket_exists "$BUCKET"; then
+  echo "There is no bucket in the target AWS account named $BUCKET"
+  buildkite-agent annotate "Unable to sync doocumentation to Backstage hub. See console for detail" --style 'error'
+  exit 1
+else
+  aws s3 sync site/ s3://"$BUCKET"/"$NAMESPACE"/"$KIND"/"$ENTITY"
   buildkite-agent annotate "Successfully synced documentation to Backstage hub." --style 'success'
   exit 0
-else
-  echo "There is no bucket in the target AWS account named $BUCKET"
-  buildkite-agent annotate "Unable to sync documentation to Backstage hub. See console for detail" --style 'error'
-  exit 1
 fi
