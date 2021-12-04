@@ -3,7 +3,7 @@
 function check_bucket_exists(){
     local BUCKET=$1
 
-    if aws s3api head-bucket --bucket $BUCKET; then
+    if aws s3api head-bucket --bucket "$BUCKET"; then
         return 0
     else
         return 1
@@ -11,9 +11,13 @@ function check_bucket_exists(){
 }
 
 function check_mk_docs_file_exists(){
-    if [[ $(find . -name "mkdocs.yml" | wc -l) -lt 1 ]]; then
-        return 1
+    if [ $(find . -name "mkdocs.yml") ]; then
+        return 0
     else
+        cat > mkdocs.yml<< EOF
+site_name: Placeholder
+site_description: This is a placeholder mkdocs.yml file.
+EOF
         return 0
     fi
 }
