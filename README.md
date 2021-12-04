@@ -41,3 +41,16 @@ The name of the S3 bucket you wish to sync the docs to, this will default to
 The ID of the `namespace` that the Entity belongs to, this will default to
 `default` if not set.
 
+## Development
+To run the tests:
+```shell
+docker-compose run --rm tests
+```
+
+## Contributing
+1. Fork the repo
+2. Make the changes
+3. Run the tests
+4. Commit and push your changes
+5. Submit a pull request
+
