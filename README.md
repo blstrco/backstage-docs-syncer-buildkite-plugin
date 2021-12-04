@@ -47,6 +47,10 @@ The name of the S3 bucket you wish to sync the docs to, this will default to
 The ID of the `namespace` that the Entity belongs to, this will default to
 `default` if not set.
 
+## Caveats
+
+- Currently there is no way to `sync` to a bucket not in the account that the agent is using, this may be worked around by using something like [Culture Amp's Assume Role](https://github.com/cultureamp/aws-assume-role-buildkite-plugin) plugin to enable the agent access to a different account than the one it is in.
+
 ## Development
 
 To run the tests:
