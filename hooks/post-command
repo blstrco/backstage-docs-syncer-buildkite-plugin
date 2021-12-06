@@ -5,11 +5,12 @@ DIR="$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)"
 
 source "$DIR/../lib/helpers"
 
-BUCKET="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_BUCKET:-backstage-docs-bucket}"
+BUCKET="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_BUCKET:-platform-backstage-docs-bucket}"
 NAMESPACE="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_NAMESPACE:-default}"
 KIND="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_KIND:-Component}"
 ENTITY="${BUILDKITE_PLUGIN_BACKSTAGE_DOCS_SYNCER_ENTITY_NAME:-service-name}"
 
+# Check the mkdocs.yml file exists, else create it
 check_mk_docs_file_exists
 
 docker run --rm -it -v "$PWD:/app" spotify/techdocs build -f app/mkdocs.yml
