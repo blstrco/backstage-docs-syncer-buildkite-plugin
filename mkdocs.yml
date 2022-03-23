@@ -1,0 +1,12 @@
+site_name: "backstage-docs-syncer-buildkite-plugin"
+site_description: "A plugin to assist in syncing Backstage documents to S3."
+
+plugins:
+  - techdocs-core
+
+# ---
+#  With `nav` commented out mkdocs will genetrate a list of all the files in the docs folder automatically
+#  Uncomment it to overwrite this behaviors and build your own navigation tree
+# ---
+# nav:
+#   - Home: index.md
