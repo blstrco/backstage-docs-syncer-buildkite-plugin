@@ -22,7 +22,7 @@ steps:
       queue: deploy
     command: 
       - "techdocs-cli generate --no-docker"
-      - "techdocs-cli publish --publisher-type awsS3 --storage-name platform-backstage-docs-bucket --entity default/Component/backstage-docs-syncer-buildkite-plugin"
+      - "techdocs-cli publish --publisher-type awsS3 --storage-name platform-backstage-docs-bucket --entity default/Component/TEMP_MKDOCS_SHORT_NAME"
     plugins:  
       - cultureamp/aws-assume-role#v0.1.0:
           role: arn:aws:iam::724013829182:role/backstage-docs-deployer-role
