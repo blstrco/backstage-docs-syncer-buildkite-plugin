@@ -12,4 +12,4 @@ spec:
   type: Component
   lifecycle: internal
   owner: developer-platform
-  system: buildkite
+  system: ci-cd
